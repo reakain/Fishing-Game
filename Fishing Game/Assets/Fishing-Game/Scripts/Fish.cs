@@ -8,8 +8,8 @@ public class Fish
     string type;
     string[] seasons;
     string[] weather;
-    float reelMax;
-    float reelMin;
+    public float reelMax { get; private set; }
+    public float reelMin { get; private set; }
 
 
     Fish(bool isspirit = false)
