@@ -10,6 +10,7 @@ public class Fishing : MonoBehaviour
     public float spiritThreshold = 0.05f;
     public float hookWindow = 1.0f;
     public float fishCheckUpdate = 1.0f;
+    public float reelPowerDelta = 1.0f;
 
     bool isLookingForFish = false;
     FishingState fishingState = FishingState.None;
@@ -18,6 +19,9 @@ public class Fishing : MonoBehaviour
 
     float hookTimer = 0f;
     float fishCheckTimer = 0f;
+
+    Fish currentFish;
+    float reelPower = 0f;
 
     enum FishingState
     {
@@ -60,6 +64,10 @@ public class Fishing : MonoBehaviour
             {
                 fishingState = FishingState.Looking;
             }
+        }
+        else if(fishingState == FishingState.Reeling)
+        {
+
         }
     }
 
@@ -107,12 +115,11 @@ public class Fishing : MonoBehaviour
         if(fishCheck < fishThreshold )
         {
             Debug.Log("Found a fishy!");
-            // Found a fish! .. Is it actually a fancy fish (spirit for my purposes)
-            if(fishCheck < spiritThreshold)
-            {
-                Debug.Log("Found a spirit!");
-            }
+            // Found a fish! Now generate it and if it's actually a spirit, give us a spirit.
+            currentFish = Fish.GenerateFish("", "", (fishCheck < spiritThreshold));
+
             // Generate notification shake, noise, and exclamation
+
             // Then change state to hooking!
             fishingState = FishingState.Hooking;
             hookTimer = 0f;
@@ -124,16 +131,18 @@ public class Fishing : MonoBehaviour
     {
         fishingState = FishingState.Reeling;
         Debug.Log("Reel dat fish in!");
+        // Create your fishing UI with range bar for the tapping!
     }
 
     public void AdjustReel()
     {
-
+        reelPower += reelPowerDelta;
     }
 
     public void StopFishing()
     {
         CharacterController.instance.isFishing = false;
         fishingState = FishingState.None;
+        Debug.Log("Stopped fishing!");
     }
 }

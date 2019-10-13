@@ -8,6 +8,8 @@ public class Fish
     string type;
     string[] seasons;
     string[] weather;
+    float reelMax;
+    float reelMin;
 
 
     Fish(bool isspirit = false)
