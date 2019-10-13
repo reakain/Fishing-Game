@@ -1,0 +1,88 @@
+{
+    "fish": [
+      {
+        "type": "Chubsucker",
+        "isSpirit": "false",
+        "source": "Chubsucker",
+      "reelmin": "0.2",
+      "reelmax": "0.7"
+    },
+    {
+      "type": "Reef triggerfish",
+        "isSpirit": "false",
+        "source": "Reef triggerfish",
+      "reelmin": "0.2",
+      "reelmax": "0.7"
+  },
+  {
+    "type": "Shrimpfish",
+    "isSpirit": "false",
+    "source": "Shrimpfish",
+  "reelmin": "0.2",
+  "reelmax": "0.7"
+},
+{
+  "type": "Cod icefish",
+  "isSpirit": "false",
+  "source": "Cod icefish",
+"reelmin": "0.2",
+"reelmax": "0.7"
+},
+{
+  "type": "Angler",
+  "isSpirit": "false",
+  "source": "Angler",
+"reelmin": "0.2",
+"reelmax": "0.7"
+},
+{
+  "type": "Ribbon eel",
+  "isSpirit": "false",
+  "source": "Ribbon eel",
+"reelmin": "0.2",
+"reelmax": "0.7"
+},
+{
+  "type": "Walking catfish",
+  "isSpirit": "false",
+  "source": "Walking catfish",
+"reelmin": "0.2",
+"reelmax": "0.7"
+},
+{
+  "type": "Frilled shark",
+  "isSpirit": "false",
+  "source": "Frilled shark",
+"reelmin": "0.2",
+"reelmax": "0.7"
+},
+{
+  "type": "Knifefish",
+  "isSpirit": "true",
+  "source": "Knifefish",
+"reelmin": "0.2",
+"reelmax": "0.7"
+},
+{
+  "type": "Glassfish",
+  "isSpirit": "true",
+  "source": "Glassfish",
+"reelmin": "0.2",
+"reelmax": "0.7"
+},
+{
+  "type": "Fire goby",
+  "isSpirit": "true",
+  "source": "Fire goby",
+"reelmin": "0.2",
+"reelmax": "0.7"
+},
+{
+  "type": "Lanternfish",
+  "isSpirit": "true",
+  "source": "Lanternfish",
+"reelmin": "0.2",
+"reelmax": "0.7"
+}
+    ]
+}
