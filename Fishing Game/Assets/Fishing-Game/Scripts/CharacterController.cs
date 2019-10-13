@@ -18,6 +18,7 @@ public class CharacterController : MonoBehaviour
     Collider2D collider;
     SpriteRenderer sprite;
     Animator animator;
+    Fishing fishing;
 
     // Define with unity player input button to use for object interaction
     public string fishButton = "Jump";
@@ -37,6 +38,7 @@ public class CharacterController : MonoBehaviour
         rigidbody2d = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
         sprite = GetComponent<SpriteRenderer>();
+        fishing = GetComponent<Fishing>();
         //animator = GetComponent<Animator>();
 
         instance = this;
@@ -82,12 +84,7 @@ public class CharacterController : MonoBehaviour
         if (Input.GetButtonDown(fishButton) && canFish)
         {
             Debug.Log("Go Fish!");
-            GoFish();
+            fishing.TryFishing();
         }
-    }
-
-    void GoFish()
-    {
-        isFishing = true;
     }
 }

@@ -6,9 +6,18 @@ public class Fishing : MonoBehaviour
 {
     [Range(0f,1f)]
     public float fishThreshold = 0.2f;
+    [Range(0f, 1f)]
+    public float spiritThreshold = 0.05f;
+    public float hookWindow = 1.0f;
+    public float fishCheckUpdate = 1.0f;
 
     bool isLookingForFish = false;
     FishingState fishingState = FishingState.None;
+
+    Animator animator;
+
+    float hookTimer = 0f;
+    float fishCheckTimer = 0f;
 
     enum FishingState
     {
@@ -16,12 +25,14 @@ public class Fishing : MonoBehaviour
         Looking,
         Hooking,
         Reeling,
-        Caught
+        Caught,
+        Escaped
     }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -29,11 +40,45 @@ public class Fishing : MonoBehaviour
     {
         if(fishingState == FishingState.Looking)
         {
-            CheckForFish();
+            if(fishCheckTimer < fishCheckUpdate)
+            {
+                fishCheckTimer += Time.deltaTime;
+            }
+            else
+            {
+                CheckForFish();
+            }
+            
         }
         else if(fishingState == FishingState.Hooking)
         {
+            if(hookTimer < hookWindow)
+            {
+                hookTimer += Time.deltaTime;
+            }
+            else
+            {
+                fishingState = FishingState.Looking;
+            }
+        }
+    }
 
+    public void TryFishing()
+    {
+        switch(fishingState)
+        {
+            case FishingState.None:
+                StartFishing();
+                break;
+            case FishingState.Looking:
+                StopFishing();
+                break;
+            case FishingState.Hooking:
+                ReelFish();
+                break;
+            case FishingState.Reeling:
+                AdjustReel();
+                break;
         }
     }
 
@@ -48,6 +93,7 @@ public class Fishing : MonoBehaviour
     public void CastLine()
     {
         // Run your line cast animation
+        // animator.SetBool("Fishing", true);
         // Change your animation state to the fishing state.
         // Start checking for fish on a ratio!
         //isLookingForFish = true;
@@ -56,17 +102,31 @@ public class Fishing : MonoBehaviour
 
     public void CheckForFish()
     {
+        var fishCheck = Random.value;
         // Check if you found a fish! 
-        if(Random.value < fishThreshold )
+        if(fishCheck < fishThreshold )
         {
-            // Found a fish!
+            Debug.Log("Found a fishy!");
+            // Found a fish! .. Is it actually a fancy fish (spirit for my purposes)
+            if(fishCheck < spiritThreshold)
+            {
+                Debug.Log("Found a spirit!");
+            }
             // Generate notification shake, noise, and exclamation
             // Then change state to hooking!
             fishingState = FishingState.Hooking;
+            hookTimer = 0f;
         }
+        fishCheckTimer = 0f;
     }
 
     public void ReelFish()
+    {
+        fishingState = FishingState.Reeling;
+        Debug.Log("Reel dat fish in!");
+    }
+
+    public void AdjustReel()
     {
 
     }
@@ -74,5 +134,6 @@ public class Fishing : MonoBehaviour
     public void StopFishing()
     {
         CharacterController.instance.isFishing = false;
+        fishingState = FishingState.None;
     }
 }
