@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FishingZone : MonoBehaviour
 {
-    
+    // When the player enters the fishing zone, tell it that it can fish
     void OnTriggerEnter2D(Collider2D other)
     {
         CharacterController controller = other.GetComponent<CharacterController>();
@@ -15,6 +15,7 @@ public class FishingZone : MonoBehaviour
         }
     }
 
+    // When the player exits the fishing zone, tell it you can't fish no more
     private void OnTriggerExit2D(Collider2D other)
     {
         CharacterController controller = other.GetComponent<CharacterController>();
@@ -24,5 +25,4 @@ public class FishingZone : MonoBehaviour
             controller.canFish = false;
         }
     }
-
 }
