@@ -4,85 +4,73 @@
         "type": "Chubsucker",
         "isSpirit": "false",
         "source": "Chubsucker",
-      "reelmin": "0.2",
-      "reelmax": "0.7"
+      "reelwindow": "0.5"
     },
     {
-      "type": "Reef triggerfish",
+      "type": "Reef Triggerfish",
         "isSpirit": "false",
-        "source": "Reef triggerfish",
-      "reelmin": "0.2",
-      "reelmax": "0.7"
+        "source": "ReefTriggerfish",
+        "reelwindow": "0.5"
   },
   {
     "type": "Shrimpfish",
     "isSpirit": "false",
     "source": "Shrimpfish",
-  "reelmin": "0.2",
-  "reelmax": "0.7"
+    "reelwindow": "0.5"
 },
 {
-  "type": "Cod icefish",
+  "type": "Cod Icefish",
   "isSpirit": "false",
-  "source": "Cod icefish",
-"reelmin": "0.2",
-"reelmax": "0.7"
+  "source": "CodIcefish",
+  "reelwindow": "0.5"
 },
 {
   "type": "Angler",
   "isSpirit": "false",
   "source": "Angler",
-"reelmin": "0.2",
-"reelmax": "0.7"
+  "reelwindow": "0.5"
 },
 {
-  "type": "Ribbon eel",
+  "type": "Ribbon Eel",
   "isSpirit": "false",
-  "source": "Ribbon eel",
-"reelmin": "0.2",
-"reelmax": "0.7"
+  "source": "RibbonEel",
+  "reelwindow": "0.5"
 },
 {
-  "type": "Walking catfish",
+  "type": "Walking Catfish",
   "isSpirit": "false",
-  "source": "Walking catfish",
-"reelmin": "0.2",
-"reelmax": "0.7"
+  "source": "WalkingCatfish",
+  "reelwindow": "0.5"
 },
 {
-  "type": "Frilled shark",
+  "type": "Frilled Shark",
   "isSpirit": "false",
-  "source": "Frilled shark",
-"reelmin": "0.2",
-"reelmax": "0.7"
+  "source": "FrilledShark",
+  "reelwindow": "0.5"
 },
 {
   "type": "Knifefish",
   "isSpirit": "true",
   "source": "Knifefish",
-"reelmin": "0.2",
-"reelmax": "0.7"
+  "reelwindow": "0.5"
 },
 {
   "type": "Glassfish",
   "isSpirit": "true",
   "source": "Glassfish",
-"reelmin": "0.2",
-"reelmax": "0.7"
+  "reelwindow": "0.5"
 },
 {
-  "type": "Fire goby",
+  "type": "Fire Goby",
   "isSpirit": "true",
-  "source": "Fire goby",
-"reelmin": "0.2",
-"reelmax": "0.7"
+  "source": "FireGoby",
+  "reelwindow": "0.5"
 },
 {
   "type": "Lanternfish",
   "isSpirit": "true",
   "source": "Lanternfish",
-"reelmin": "0.2",
-"reelmax": "0.7"
+  "reelwindow": "0.5"
 }
     ]
 }

@@ -57,14 +57,13 @@ namespace FishingGame
         public string type = "";
     public bool isSpirit = false;
 public string source = "";
-    
-    public float reelmin = 0f;
-    public float reelmax = 0f;
+
+        public float reelwindow = 0f;
     //public string[] seasons;
     //public string[] weather;
 
 
-    Fish(bool isspirit = false)
+        Fish(bool isspirit = false)
     {
         
     }
