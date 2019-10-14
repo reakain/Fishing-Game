@@ -10,10 +10,10 @@ namespace FishingGame
         public float fishThreshold = 0.2f;
         [Range(0f, 1f)]
         public float spiritThreshold = 0.05f;
-        public float escapeWindow = 1.0f;
+        public float escapeWindow = 5.0f;
         public float fishCheckUpdate = 1.0f;
-        public float reelSpeed = 1.0f;
-        public float reelPowerDelta = 0.2f;
+        public float reelSpeed = 0.3f;
+        public float reelPowerDelta = 0.3f;
 
         bool isLookingForFish = false;
         FishingState fishingState = FishingState.None;
@@ -185,15 +185,22 @@ namespace FishingGame
 
         public void ReelFish()
         {
+            // Time to start reeling!
             fishingState = FishingState.Reeling;
+            // Clear our escape and catch timers
             escapeTimer = 0f;
             catchTimer = 0f;
-            reelMin = 0 + currentFish.reelwindow / 2f;
-            reelMax = 1 - currentFish.reelwindow / 2f;
+            // set our reel power window
+            reelMin = -1f + currentFish.reelwindow / 2f;
+            reelMax = 1f - currentFish.reelwindow / 2f;
+            // Start with reel power in the middle
+            reelPower = 0f;
+
             Debug.Log("Reel dat fish in!");
-            // Create your fishing UI with range bar for the tapping!
+
+            // Enable your fishing bar and set the vertical range to match our window size
             UIFishBar.instance.gameObject.SetActive(true);
-            UIFishBar.instance.SetValue(currentFish.reelwindow);
+            UIFishBar.instance.SetCatchWindow(currentFish.reelwindow);
         }
 
         public void AdjustReel(bool addPower = false)
@@ -203,12 +210,14 @@ namespace FishingGame
             // Add power if we're adding power
             if (addPower)
             {
-                reelPower = Mathf.Clamp(reelPower + reelPowerDelta, 0, 1f);
+                reelPower = Mathf.Clamp(reelPower + reelPowerDelta, -1f, 1f);
+                UIFishBar.instance.MoveCuror(reelPower);
                 return;
             }
 
             // Subtract from your reel power (but don't go below zero)
-            reelPower = Mathf.Clamp(reelPower - reelSpeed * Time.deltaTime, 0, 1f);
+            reelPower = Mathf.Clamp(reelPower - reelSpeed * Time.deltaTime, -1f, 1f);
+            UIFishBar.instance.MoveCuror(reelPower);
         }
 
         public void StopFishing()
