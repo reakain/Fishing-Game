@@ -27,7 +27,6 @@ namespace FishingGame
         float reelPower = 0f;
         float reelMin = 0f;
         float reelMax = 0f;
-        bool pullEscape = false; // Escaping = false, pulling = true
 
         enum FishingState
         {

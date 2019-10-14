@@ -6,8 +6,16 @@ Unity build out for 2D top down fishing mini-game.
 ## What is?
 A simple mechanical build out of a top-down click-mash style fishing mini-game. This includes fishing zone setup, directionality, commented out blocks for fishing animation and animator logic, pulling fish from a database, and emote notifications.
 
+## Scripts
+#### Fishing.cs
+#### FishDatabase.cs
+#### CharacterController.cs
+#### FishingZone.cs
+#### UIEmoteBubble.cs
+#### UIFishBar.cs
+#### UIFishCaught.cs
+
 ## To-Do
- - Pop up info on fish caught
  - Fishing direction check
  - Animations
 

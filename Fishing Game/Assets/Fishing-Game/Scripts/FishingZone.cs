@@ -2,27 +2,30 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FishingZone : MonoBehaviour
+namespace FishingGame
 {
-    // When the player enters the fishing zone, tell it that it can fish
-    void OnTriggerEnter2D(Collider2D other)
+    public class FishingZone : MonoBehaviour
     {
-        CharacterController controller = other.GetComponent<CharacterController>();
-
-        if (controller != null)
+        // When the player enters the fishing zone, tell it that it can fish
+        void OnTriggerEnter2D(Collider2D other)
         {
-            controller.canFish = true;
+            CharacterController controller = other.GetComponent<CharacterController>();
+
+            if (controller != null)
+            {
+                controller.canFish = true;
+            }
         }
-    }
 
-    // When the player exits the fishing zone, tell it you can't fish no more
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        CharacterController controller = other.GetComponent<CharacterController>();
-
-        if (controller != null)
+        // When the player exits the fishing zone, tell it you can't fish no more
+        private void OnTriggerExit2D(Collider2D other)
         {
-            controller.canFish = false;
+            CharacterController controller = other.GetComponent<CharacterController>();
+
+            if (controller != null)
+            {
+                controller.canFish = false;
+            }
         }
     }
 }

@@ -13,7 +13,6 @@ public class UIEmoteBubble : MonoBehaviour
     float originalSize;
     public float emoteSpeed = 5f;
     float currentY = 0f;
-    bool playingEmote = false;
     public float holdTimeWindow = 1f;
     float holdTimer = 0f;
     EmoteState currentState = EmoteState.None;
