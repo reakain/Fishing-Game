@@ -8,7 +8,6 @@ A simple mechanical build out of a top-down click-mash style fishing mini-game. 
 
 ## To-Do
  - Pop up info on fish caught
- - Emote pop ups
  - Fishing direction check
  - Animations
 
