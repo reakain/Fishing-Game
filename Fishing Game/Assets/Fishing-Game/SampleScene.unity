@@ -775,6 +775,7 @@ GameObject:
   - component: {fileID: 1089235143}
   - component: {fileID: 1089235145}
   - component: {fileID: 1089235144}
+  - component: {fileID: 1089235146}
   m_Layer: 5
   m_Name: Fishing Meter
   m_TagString: Untagged
@@ -841,6 +842,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1089235142}
   m_CullTransparentMesh: 0
+--- !u!114 &1089235146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1089235142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773a6269cd4ee454ca660f9a6e8b169b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mask: {fileID: 2001534270}
 --- !u!1 &1357294358
 GameObject:
   m_ObjectHideFlags: 0

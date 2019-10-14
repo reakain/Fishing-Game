@@ -34,10 +34,10 @@ namespace FishingGame
         public static FishDatabase fishLibrary = FishDatabase.CreateFromJSON(Resources.Load<TextAsset>("Fish/FishDatabase").text);
 
         public static Fish GenerateFish(string season, string weather, bool isspirit = false)
-    {
-        var possibleFish = System.Array.FindAll(fishLibrary.fish, f => f.isSpirit == isspirit);
-        return possibleFish[Random.Range(0,possibleFish.Length - 1)];
-    }
+        {
+            var possibleFish = System.Array.FindAll(fishLibrary.fish, f => f.isSpirit == isspirit);
+            return possibleFish[Random.Range(0, possibleFish.Length - 1)];
+        }
 
     }
 
@@ -52,24 +52,24 @@ namespace FishingGame
     }
 
     [System.Serializable]
-    public class Fish 
-{
+    public class Fish
+    {
         public string type = "";
-    public bool isSpirit = false;
-public string source = "";
+        public bool isSpirit = false;
+        public string source = "";
 
         public float reelwindow = 0f;
-    //public string[] seasons;
-    //public string[] weather;
+        //public string[] seasons;
+        //public string[] weather;
 
 
         Fish(bool isspirit = false)
-    {
-        
-    }
+        {
 
-    
-}
+        }
+
+
+    }
     #endregion
 
 }

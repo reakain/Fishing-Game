@@ -53,6 +53,17 @@ public class CharacterController : MonoBehaviour
             return;
         }
 
+        if (Input.GetButtonDown(fishButton) && canFish)
+        {
+            Debug.Log("Go Fish!");
+            fishing.TryFishing();
+        }
+
+        if(isFishing)
+        {
+            return;
+        }
+
         // Get your up/down/left/right player input
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
@@ -81,10 +92,6 @@ public class CharacterController : MonoBehaviour
         // Tell the rigidbody to move to the positon specified
         rigidbody2d.MovePosition(position);
 
-        if (Input.GetButtonDown(fishButton) && canFish)
-        {
-            Debug.Log("Go Fish!");
-            fishing.TryFishing();
-        }
+        
     }
 }

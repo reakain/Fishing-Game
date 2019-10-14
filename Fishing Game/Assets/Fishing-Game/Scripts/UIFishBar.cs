@@ -3,27 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIFishBar : MonoBehaviour
+namespace FishingGame
 {
-
-    public static UIFishBar instance { get; private set; }
-
-    public Image mask;
-    float originalSize;
-
-    void Awake()
+    public class UIFishBar : MonoBehaviour
     {
-        instance = this;
-    }
 
-    void Start()
+        public static UIFishBar instance { get; private set; }
+
+        public Image mask;
+        float originalSize;
+
+        void Awake()
         {
-            originalSize = mask.rectTransform.rect.width;
+            instance = this;
+        }
+
+        void Start()
+        {
+            originalSize = mask.rectTransform.rect.height;
+            gameObject.SetActive(false);
         }
 
         public void SetValue(float value)
         {
             mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, originalSize * value);
         }
-    
+
+    }
 }

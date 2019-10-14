@@ -192,6 +192,7 @@ namespace FishingGame
             reelMax = 1 - currentFish.reelwindow / 2f;
             Debug.Log("Reel dat fish in!");
             // Create your fishing UI with range bar for the tapping!
+            UIFishBar.instance.gameObject.SetActive(true);
             UIFishBar.instance.SetValue(currentFish.reelwindow);
         }
 
@@ -202,12 +203,12 @@ namespace FishingGame
             // Add power if we're adding power
             if (addPower)
             {
-                reelPower = (reelPower < 1f) ? reelPower + reelPowerDelta : 1f;
+                reelPower = Mathf.Clamp(reelPower + reelPowerDelta, 0, 1f);
                 return;
             }
 
             // Subtract from your reel power (but don't go below zero)
-            reelPower = (reelPower > 0f) ? reelPower - reelSpeed * Time.deltaTime : 0f;
+            reelPower = Mathf.Clamp(reelPower - reelSpeed * Time.deltaTime, 0, 1f);
         }
 
         public void StopFishing()
@@ -215,6 +216,7 @@ namespace FishingGame
             CharacterController.instance.isFishing = false;
             fishingState = FishingState.None;
             Debug.Log("Stopped fishing!");
+            UIFishBar.instance.gameObject.SetActive(false);
         }
 
         public void FishEscaped()
