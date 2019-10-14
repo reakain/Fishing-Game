@@ -15,7 +15,6 @@ namespace FishingGame
         public float reelSpeed = 0.3f;
         public float reelPowerDelta = 0.3f;
 
-        bool isLookingForFish = false;
         FishingState fishingState = FishingState.None;
 
         Animator animator;
@@ -241,6 +240,7 @@ namespace FishingGame
         {
             fishingState = FishingState.Caught;
             Debug.Log("Caught a fish!");
+            UIFishCaught.instance.ShowCaughtFish(currentFish);
             StopFishing();
         }
     }

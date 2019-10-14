@@ -25,7 +25,7 @@ namespace FishingGame
         void Start()
         {
             originalSize = mask.rectTransform.rect.height;
-            //gameObject.SetActive(false);
+            gameObject.SetActive(false);
 
             offMax = new Vector2(cursor.rectTransform.offsetMax.x, cursor.rectTransform.offsetMax.y);
             offMin = new Vector2(cursor.rectTransform.offsetMin.x, cursor.rectTransform.offsetMin.y);
