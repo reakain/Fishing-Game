@@ -171,10 +171,12 @@ namespace FishingGame
             if (fishCheck < fishThreshold)
             {
                 Debug.Log("Found a fishy!");
+
                 // Found a fish! Now generate it and if it's actually a spirit, give us a spirit.
                 currentFish = FishLibrary.GenerateFish("", "", (fishCheck < spiritThreshold));
 
                 // Generate notification shake, noise, and exclamation
+                UIEmoteBubble.instance.PlayEmote("Surprise");
 
                 // Then change state to hooking!
                 fishingState = FishingState.Hooking;
